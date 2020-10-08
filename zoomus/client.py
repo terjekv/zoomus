@@ -14,6 +14,7 @@ API_BASE_URIS = {
 COMPONENT_CLASSES = {
     API_VERSION_1: {
         "user": components.user.UserComponent,
+        "group": components.group.GroupComponent,
         "meeting": components.meeting.MeetingComponent,
         "report": components.report.ReportComponent,
         "webinar": components.webinar.WebinarComponent,
@@ -21,6 +22,7 @@ COMPONENT_CLASSES = {
     },
     API_VERSION_2: {
         "user": components.user.UserComponentV2,
+        "group": components.group.GroupComponentV2,
         "meeting": components.meeting.MeetingComponentV2,
         "metric": components.metric.MetricComponentV2,
         "past_meeting": components.past_meeting.PastMeetingComponentV2,
