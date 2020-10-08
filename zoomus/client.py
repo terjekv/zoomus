@@ -145,6 +145,11 @@ class ZoomClient(util.ApiClient):
         return self.components.get("user")
 
     @property
+    def group(self):
+        """Get the group component"""
+        return self.components.get("group")
+
+    @property
     def webinar(self):
         """Get the webinar component"""
         return self.components.get("webinar")
