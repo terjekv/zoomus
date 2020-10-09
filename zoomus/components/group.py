@@ -60,9 +60,9 @@ class GroupComponentV2(base.BaseComponent):
 
     def add_members(self, **kwargs):
         util.require_keys(kwargs, "id")
-        return self.get_request("/groups/{}/members".format(kwargs.get("id")), params=kwargs)
+        return self.patch_request("/groups/{}/members".format(kwargs.get("id")), data=kwargs)
 
     def delete_member(self, **kwargs):
-        util.require_keys(kwargs, "id")
-        util.require_keys(kwargs, "userid")
-        return self.get_request("/groups/{}/members/{}".format(kwargs.get("id"), kwargs.get("userid")), params=kwargs)
+        util.require_keys(kwargs, ["id", "userid"])
+        return self.delete_request("/groups/{}/members/{}".format(kwargs.get("id"),
+                                   kwargs.get("userid")), data=kwargs)
