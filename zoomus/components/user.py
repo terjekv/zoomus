@@ -65,3 +65,16 @@ class UserComponentV2(base.BaseComponent):
     def update_settings(self, **kwargs):
         util.require_keys(kwargs, "id")
         return self.patch_request("/users/{}/settings".format(kwargs.get("id")), data=kwargs)
+
+    def get_assistants(self, **kwargs):
+        util.require_keys(kwargs, "id")
+        return self.get_request("/users/{}/assistants".format(kwargs.get("id")), params=kwargs)
+
+    def add_assistants(self, **kwargs):
+        util.require_keys(kwargs, "id")
+        return self.post_request("/users/{}/assistants".format(kwargs.get("id")), data=kwargs)
+
+    def delete_assistant(self, **kwargs):
+        util.require_keys(kwargs, ["id", "assistantid"])
+        return self.delete_request("/users/{}/assistants/{}".format(kwargs.get("id"),
+                                  kwargs.get('assistantid')), data=kwargs)
