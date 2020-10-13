@@ -60,7 +60,7 @@ class GroupComponentV2(base.BaseComponent):
 
     def add_members(self, **kwargs):
         util.require_keys(kwargs, "id")
-        return self.patch_request("/groups/{}/members".format(kwargs.get("id")), data=kwargs)
+        return self.post_request("/groups/{}/members".format(kwargs.get("id")), data=kwargs)
 
     def delete_member(self, **kwargs):
         util.require_keys(kwargs, ["id", "userid"])
